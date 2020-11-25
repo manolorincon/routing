@@ -1,0 +1,31 @@
+<%= form_for([@route,@stop], remote: true) do |form| %>
+  <% if @stop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stop.errors.count, "error") %> prohibited this stop from being saved:</h2>
+
+      <ul>
+        <% @stop.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h4>Registrar paradas</h4>
+  <div class="field">
+		Carga: <%= form.number_field :charge, min:1%> Kg.
+	</div>
+  <div class="field">
+		Direccion: <%= form.text_field :direccion %>
+	</div>
+  <div class="field">
+		Comuna: <%= form.text_field :nombre_comuna %>
+	</div>
+  <div class="field">
+		Tipo de Carga: <%= form.text_field :tipo_carga %>
+    1 - General
+    2 - Refrigerada
+	</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

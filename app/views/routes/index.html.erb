@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+<div class="content">
+  <h1>Control de Rutas</h1>
+  <br>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th title="Field #1">ID</th>
+        <th title="Field #2">Fecha</th>
+        <th title="Field #3">Paradas</th>
+        <th title="Field #4">Horario</th>
+        <th title="Field #5">Carga Total</th>
+        <th title="Field #6">Conductor</th>
+        <th title="Field #7"></th>
+        <th title="Field #8"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @routes.each do |route| %>
+      <tr>
+        <td><%= route.id %></td>
+        <td><%= route.created_at.strftime('%F %T') %></td>
+        <td><%= route.stops.count %></td>
+        <% total = 0 %>
+        <% route.stops.each do |stop| %>
+        <% total = total + stop.charge %>
+        <% end %>
+        <td>
+          <%= route.route_start.strftime('%F %T')%> - 
+          <br>
+          <%= route.route_end.strftime('%F %T')%>
+        </td>
+        <td><%= total %> Kg. </td>
+        <td>
+          <%= route.drivers %>
+        </td>
+        <td><%= link_to 'Ver', route %></td>
+        <td><%= link_to 'Asignar', route.drivers %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+  <br>
+  <%= link_to 'Crear Ruta', new_route_path %>
+</div>

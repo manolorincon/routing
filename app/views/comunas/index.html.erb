@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comunas</h1>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Comuna</th>
+      <th>Region</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comunas.each do |comuna| %>
+      <tr>
+        <td><%= comuna.comuna %></td>
+        <td><%= comuna.region %></td>
+        <td><%= link_to 'Ver', comuna %></td>
+        <td><%= link_to 'Editar', edit_comuna_path(comuna) %></td>
+        <td><%= link_to 'Eliminar', comuna, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Crear Comuna', new_comuna_path %>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Routing</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<%= render "partials/navigation" %>
+	<div style="<%= "display:none;" if notice.nil? and alert.nil? %>">
+		<%= notice %> <%= alert %>
+	</div>
+
+<%= yield %>
+
+</body>
+</html>

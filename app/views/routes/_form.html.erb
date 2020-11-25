@@ -1,0 +1,27 @@
+<%= form_with(model: route, local: true) do |form| %>
+  <% if route.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
+
+      <ul>
+        <% route.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br><br>
+  <h4>Fecha de inicio de la ruta</h4>
+  <div class="field">
+		<%= form.datetime_select :route_start, placeholder: "Indica el comienzo de la ruta", class: "form-control"%>
+	</div>
+  <br>
+  <h4>Fecha de termino de la ruta</h4>
+	<div class="field">
+		<%= form.datetime_select :route_end, placeholder: "Indica el fin de la ruta", class: "form-control"%>
+	</div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <br>
+<% end %>

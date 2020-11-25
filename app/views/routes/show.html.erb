@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="grey">
+		<div class="row">
+			<div class="col-xs-12">
+				Cantidad de paradas en esta ruta
+			</div>
+			<br>
+			<div class="col-xs-12">
+				<%= @route.stops.count %> parada(s)
+			</div>	
+			<div class="top-space col-xs-12">
+			<% @route.stops.each do |stops| %>
+				<div class="field">
+					<%= stops.charge %> Kg.
+					Hacia
+					<%= stops.direccion %>, Comuna 
+					<%= stops.nombre_comuna %>.
+				</div>
+			<% end %>
+			</div>
+			<div class="top-space col-xs-12">
+				<%= render "stops/form" %>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<%= link_to 'Back', routes_path %>

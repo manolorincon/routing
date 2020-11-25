@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo carga:</strong>
+  <%= @vehicle.tipo_carga %>
+</p>
+
+<p>
+  <strong>Capacidad carga:</strong>
+  <%= @vehicle.capacidad_carga %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>
