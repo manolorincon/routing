@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_235737) do
+ActiveRecord::Schema.define(version: 2020_11_25_044313) do
 
   create_table "comunas", force: :cascade do |t|
     t.string "comuna"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2020_11_24_235737) do
     t.string "direccion"
     t.string "nombre_comuna"
     t.integer "tipo_carga"
+    t.string "comuna_nombre"
+    t.string "comuna"
     t.index ["route_id"], name: "index_stops_on_route_id"
   end
 

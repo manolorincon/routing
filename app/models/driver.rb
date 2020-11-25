@@ -1,5 +1,4 @@
 class Driver < ActiveRecord::Base
-    has_one :vehicles
-    belongs_to :vehicles
+    belongs_to :vehicles, optional: true
     has_many :routes
 end
